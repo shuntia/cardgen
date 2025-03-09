@@ -156,6 +156,7 @@ fn main() {
         description.push_str(&format!("<li>{}</li>", line));
     }
     html = html.replace("DESCRIPTION", &description);
+    println!("{}", &description);
     println!("現在カテゴリと種類の画像は未実装です。");
     let mut f = std::fs::File::open(card.image).unwrap();
     let mut buf = Vec::new();
@@ -205,6 +206,14 @@ fn main() {
 }
 
 const HTML: &str = r#"
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CARD</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ops8lqp.css">
+</head>
 <style>
     .header{
         padding:10px;
@@ -367,6 +376,7 @@ const HTML: &str = r#"
         </div>
     </div>
 </div>
+</html>
 "#;
 struct Card {
     pub title: String,
